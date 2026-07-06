@@ -19,7 +19,7 @@ const typologies = [
     modules: "Live",
     description:
       "A single elemental module — the base unit of the whole system, on its own. Used as a compact studio, a home office, or an auxiliary pavilion alongside a larger configuration.",
-    imageLabel: "Place your image here: images/typology-xs.jpg — see PDF: Extra Small isometric render",
+    imageLabel: "Place your image here: images/typology-xs.jpg",
     imageSrc: "/images/typology-xs.jpg",
   },
   {
@@ -28,7 +28,7 @@ const typologies = [
     modules: "Sleep + Service Pod",
     description:
       "Two modules, end to end: a sleeping module and a service pod combining bathroom and kitchenette. The complete compact suite for a single guest or couple.",
-    imageLabel: "Place your image here: images/typology-small.jpg — see PDF: Small isometric render",
+    imageLabel: "Place your image here: images/typology-small.jpg",
     imageSrc: "/images/typology-small.jpg",
   },
   {
@@ -37,7 +37,7 @@ const typologies = [
     modules: "Sleep + Service Pod + Live",
     description:
       "The Small configuration extended by one module — a dedicated living space added alongside the sleeping and service modules, for longer stays.",
-    imageLabel: "Place your image here: images/typology-medium.jpg — see PDF: Medium isometric render",
+    imageLabel: "Place your image here: images/typology-medium.jpg",
     imageSrc: "/images/typology-medium.jpg",
   },
   {
@@ -46,7 +46,7 @@ const typologies = [
     modules: "Balcony + Sleep + Service Pod + Eat + Live + Balcony",
     description:
       "The full sequence — sleeping, service, dining, and living modules bookended by two covered terraces, one at each end of the shell.",
-    imageLabel: "Place your image here: images/typology-large.jpg — see PDF: Large isometric render",
+    imageLabel: "Place your image here: images/typology-large.jpg",
     imageSrc: "/images/typology-large.jpg",
   },
 ];

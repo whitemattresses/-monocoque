@@ -35,9 +35,9 @@ export default function ContactPage() {
           <Reveal delay={0.2}>
             <div className="mt-12">
               <ImagePlaceholder
-                label="Place your image here: images/studio-atelier.jpg"
-                src="/images/studio-atelier.jpg"
-                alt="WHITE x P4Architecture fabrication studio"
+                label="Place your image here: images/contact-general.jpg"
+                src="/images/contact-general.jpg"
+                alt="A Monocoque cabin among pines, at dusk"
                 ratio="aspect-[16/10]"
               />
             </div>
