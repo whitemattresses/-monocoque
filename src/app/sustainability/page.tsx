@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "-42%", label: "Embodied carbon vs. concrete-frame equivalent" },
-  { value: "1 t", label: "CO₂ stored per m³ of CLT in the structure" },
-  { value: "100%", label: "FSC or PEFC-certified timber sourcing" },
+  { value: "0", label: "Excavation required to place a Monocoque cabin" },
   { value: "0", label: "Curing time — dry assembly, no on-site emissions" },
+  { value: "2", label: "Reversible foundation options: ground screws or plinths" },
+  { value: "1", label: "Rigid CLT shell — no columns, minimal material" },
 ];
 
 export default function SustainabilityPage() {
@@ -22,40 +22,42 @@ export default function SustainabilityPage() {
     <>
       <PageHero
         eyebrow="Sustainability"
-        title="A Structure That Gives Back Carbon"
-        description="Every Monocoque shell is grown before it is built. Timber sequesters carbon as it matures — and continues to store it for the working life of the building."
+        title="A Structure That Doesn't Hurt the Land"
+        description="Monocoque's shell is light and rigid enough that the ground barely notices it. No excavation, no thousands of tons of poured concrete — just a cabin that rests on the site rather than fighting it."
       />
 
       <StatGrid
         eyebrow="By the Numbers"
-        title="The Material Case for Mass Timber"
+        title="The Case for a Lighter Foundation"
         stats={stats}
       />
 
       <SplitFeature
-        eyebrow="Sourcing"
-        title="Certified Forestry, Traceable Supply"
-        description="Every panel begins in a forest managed for long-term yield, not short-term extraction. We work exclusively with FSC and PEFC-certified suppliers, and can trace each project's timber back to its forest of origin — a growing requirement for ESG-linked hospitality financing."
+        eyebrow="Foundations"
+        title="Resting on the Land, Not Cut Into It"
+        description="Because the CLT shell carries its own load and needs no concrete frame behind it, Monocoque cabins can be supported on reversible ground screws or, where terrain requires it, small concrete plinths — never a full excavated foundation. Both methods touch a fraction of the ground a conventional structure would."
         bullets={[
-          "Chain-of-custody documentation provided per project",
-          "Regional sourcing prioritised to reduce transport emissions",
-          "Replanting commitments built into supplier agreements",
+          "Ground screws or plinths, chosen per site's soil and slope",
+          "No excavation, no mass concrete pour",
+          "Installed and removed without heavy earthworks",
         ]}
-        imageLabel="Certified Forestry — Managed Timber Stand"
+        imageLabel="Place your image here: images/sustainability-nature.jpg"
+        imageSrc="/images/sustainability-nature.jpg"
         href="/b2b-value"
         linkLabel="See the Financial Case"
       />
 
       <SplitFeature
         eyebrow="Lifecycle"
-        title="Engineered for Disassembly"
-        description="Monocoque panels are mechanically fixed, not wet-bonded to the substructure — meaning a structure can be partially disassembled for renovation, or fully deconstructed at end of life, with panels reclaimed rather than demolished into landfill."
+        title="If It Ever Needs to Leave, It Can"
+        description="A Monocoque cabin is connected to its foundation mechanically, not permanently. If a site ever needs to be returned to its original condition, the structure can be unscrewed, lifted by crane, and relocated — leaving the landscape as it was before the cabin arrived."
         bullets={[
-          "Bolted and dowelled connections replace irreversible wet joints",
-          "Panels can be re-cut and re-purposed across renovation cycles",
-          "Reduces landfill demolition waste at end of asset life",
+          "Bolted, reversible connections instead of irreversible wet joints",
+          "A complete module can be lifted and relocated as one piece",
+          "Ground screws are removed cleanly, without demolition waste",
         ]}
-        imageLabel="Panel Connection Detail — Mechanical Fixing"
+        imageLabel="Place your image here: images/the-logic-assembly.jpg"
+        imageSrc="/images/the-logic-assembly.jpg"
         href="/the-logic"
         linkLabel="See the Full System Logic"
         reverse

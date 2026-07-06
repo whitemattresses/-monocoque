@@ -9,7 +9,9 @@ export default function Hero() {
     <section className="relative overflow-hidden border-b border-line">
       <div className="absolute inset-0">
         <ImagePlaceholder
-          label="Hero — Flagship Villa, Dusk Exterior"
+          label="Place your image here: images/hero-home.jpg"
+          src="/images/hero-home.jpg"
+          alt="Monocoque cabin among pines, opening onto the sea"
           ratio="aspect-auto h-full"
           className="h-full rounded-none border-0"
         />
@@ -41,10 +43,11 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mt-8 max-w-xl text-lg leading-relaxed text-cream/80 md:text-xl"
         >
-          Monocoque engineers cross-laminated timber into a single, precise
-          architectural system — built off-site, assembled in days, and
-          designed to hold its value across a fifty-year hospitality
-          lifecycle.
+          A monocoque is a shell where the structure and the space are the
+          same object. Monocoque builds on that logic in solid cross-laminated
+          timber — a self-supporting cabin with no internal columns, produced
+          in a factory, delivered by truck, and placed by crane in a single
+          season.
         </motion.p>
 
         <motion.div

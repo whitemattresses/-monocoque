@@ -8,9 +8,9 @@ export default function SiteFooter() {
         <div>
           <p className="font-serif text-2xl tracking-[0.08em]">MONOCOQUE</p>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-cream/60">
-            A prefabricated cross-laminated timber residential system,
-            engineered for luxury hospitality. Developed with P4Architecture
-            for WHITE.
+            A prefabricated cross-laminated timber system, built from a
+            single 2.40 × 4.05m module. A creation of WHITE, designed in
+            collaboration with P4Architecture.
           </p>
         </div>
 

@@ -4,9 +4,9 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
 
 const typologies = [
-  { name: "The Pavilion Suite", note: "Single-key, 68m²", image: "Pavilion Suite — Exterior" },
-  { name: "The Canopy Villa", note: "Two-key, 140m²", image: "Canopy Villa — Elevated Deck" },
-  { name: "The Overwater Residence", note: "Three-key, 210m²", image: "Overwater Residence — Water Level" },
+  { name: "Small", note: "19 m² — Sleep + Service Pod", image: "Place your image here: images/typology-small.jpg", src: "/images/typology-small.jpg" },
+  { name: "Medium", note: "29 m² — Sleep + Service Pod + Live", image: "Place your image here: images/typology-medium.jpg", src: "/images/typology-medium.jpg" },
+  { name: "Large", note: "49 m² — Full module sequence", image: "Place your image here: images/typology-large.jpg", src: "/images/typology-large.jpg" },
 ];
 
 export default function TypologiesPreview() {
@@ -16,8 +16,8 @@ export default function TypologiesPreview() {
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <SectionHeading
             eyebrow="Typologies"
-            title="One System, Many Silhouettes"
-            description="Every typology shares the same engineered core — reconfigured in plan and elevation to answer the brief of the site."
+            title="One Module, Linked in Sequence"
+            description="Every typology is the same 2.40 × 4.05m CLT module, added end to end — the sequence changes, the engineered core does not."
           />
           <Reveal delay={0.1}>
             <Link
@@ -32,7 +32,7 @@ export default function TypologiesPreview() {
         <div className="mt-16 grid gap-x-8 gap-y-14 md:grid-cols-3">
           {typologies.map((item, i) => (
             <Reveal key={item.name} delay={i * 0.08}>
-              <ImagePlaceholder label={item.image} />
+              <ImagePlaceholder label={item.image} src={item.src} />
               <p className="mt-6 font-serif text-2xl">{item.name}</p>
               <p className="mt-2 text-sm tracking-wide text-charcoal/55">
                 {item.note}

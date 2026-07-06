@@ -3,34 +3,34 @@ import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
 
 type TypologyCardProps = {
   name: string;
-  keys: string;
-  size: string;
-  setting: string;
+  sizeLabel: string;
+  modules: string;
   description: string;
   imageLabel: string;
+  imageSrc?: string;
   delay?: number;
 };
 
 export default function TypologyCard({
   name,
-  keys,
-  size,
-  setting,
+  sizeLabel,
+  modules,
   description,
   imageLabel,
+  imageSrc,
   delay = 0,
 }: TypologyCardProps) {
   return (
     <Reveal delay={delay}>
-      <ImagePlaceholder label={imageLabel} />
+      <ImagePlaceholder label={imageLabel} src={imageSrc} />
       <div className="mt-6 flex items-start justify-between gap-4">
         <p className="font-serif text-2xl">{name}</p>
         <p className="tracking-wide-label whitespace-nowrap pt-1 text-[0.65rem] uppercase text-wood">
-          {setting}
+          {sizeLabel}
         </p>
       </div>
       <p className="mt-2 text-sm tracking-wide text-charcoal/55">
-        {keys} · {size}
+        {modules}
       </p>
       <p className="mt-4 text-sm leading-relaxed text-charcoal/65">
         {description}

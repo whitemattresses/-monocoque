@@ -1,16 +1,42 @@
 type ImagePlaceholderProps = {
   label: string;
+  src?: string;
+  alt?: string;
   ratio?: string;
   dark?: boolean;
   className?: string;
+  fit?: "cover" | "contain";
 };
 
 export default function ImagePlaceholder({
   label,
+  src,
+  alt,
   ratio = "aspect-[4/5]",
   dark = false,
   className = "",
+  fit = "cover",
 }: ImagePlaceholderProps) {
+  if (src) {
+    return (
+      <div
+        className={`overflow-hidden ${ratio} w-full ${
+          fit === "contain" ? "bg-cream-dim" : ""
+        } ${className}`}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={src}
+          alt={alt ?? label}
+          loading="lazy"
+          className={`h-full w-full ${
+            fit === "contain" ? "object-contain p-4" : "object-cover"
+          }`}
+        />
+      </div>
+    );
+  }
+
   return (
     <div
       className={`${

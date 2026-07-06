@@ -8,5 +8,4 @@ export const navLinks: NavLink[] = [
   { href: "/typologies", label: "Typologies" },
   { href: "/sustainability", label: "Sustainability" },
   { href: "/b2b-value", label: "B2B Value" },
-  { href: "/partnership", label: "WHITE x P4A" },
 ];

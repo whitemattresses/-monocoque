@@ -8,6 +8,7 @@ type SplitFeatureProps = {
   description: string;
   bullets?: string[];
   imageLabel: string;
+  imageSrc?: string;
   href: string;
   linkLabel: string;
   reverse?: boolean;
@@ -20,6 +21,7 @@ export default function SplitFeature({
   description,
   bullets,
   imageLabel,
+  imageSrc,
   href,
   linkLabel,
   reverse = false,
@@ -36,7 +38,7 @@ export default function SplitFeature({
       <div className="container-editorial grid items-center gap-14 lg:grid-cols-2 lg:gap-24">
         <div className={reverse ? "lg:order-2" : ""}>
           <Reveal>
-            <ImagePlaceholder label={imageLabel} dark={dark} />
+            <ImagePlaceholder label={imageLabel} src={imageSrc} dark={dark} />
           </Reveal>
         </div>
 

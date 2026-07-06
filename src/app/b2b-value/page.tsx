@@ -14,41 +14,41 @@ export const metadata: Metadata = {
 const pillars = [
   {
     index: "01",
-    title: "Compressed Timelines",
-    copy: "Factory fabrication runs parallel to site works, cutting time-to-revenue by up to 70% against masonry construction.",
+    title: "One Season, Not Several",
+    copy: "Factory fabrication runs while site preparation happens in parallel — a Monocoque asset can go from order to an assembled, occupiable structure within a single season.",
   },
   {
     index: "02",
-    title: "Fixed-Cost Certainty",
-    copy: "Panel pricing is agreed before site mobilisation, insulating your pro forma from labour and material volatility.",
+    title: "0% Unpredictable Costs",
+    copy: "Panel pricing is fixed at the factory before site mobilisation begins — replacing the cost overruns typical of traditional Greek construction with 100% price transparency.",
   },
   {
     index: "03",
-    title: "Consistent Brand Quality",
-    copy: "Factory tolerances mean every key meets the same finish standard — protecting guest experience at scale.",
+    title: "Consistent Build Quality",
+    copy: "Every module is milled and dry-fitted in the factory to the same tolerances — every unit meets the same standard, regardless of site conditions.",
   },
   {
     index: "04",
     title: "Reduced Site Risk",
-    copy: "Shorter site programmes mean less exposure to weather delays, labour shortages, and safety incidents.",
+    copy: "Days of crane assembly replace months of on-site construction, cutting exposure to weather delays, labour shortages, and site incidents.",
   },
   {
     index: "05",
     title: "Remote & Constrained Sites",
-    copy: "Lightweight, pre-cut panels reduce the plant and access requirements of building on islands, cliffs, or reserves.",
+    copy: "A lightweight, self-supporting shell and reversible ground-screw foundations reduce the plant and access requirements of building on islands, cliffs, or protected land.",
   },
   {
     index: "06",
-    title: "ESG & Financing Alignment",
-    copy: "Lower embodied carbon and certified sourcing support green financing terms increasingly required by lenders.",
+    title: "A Process, Not a Building Site",
+    copy: "Delivery is a sequence — truck, crane, placement, connection — rather than an extended construction presence, reducing the operational disruption of building near an active hospitality asset.",
   },
 ];
 
 const stats = [
-  { value: "70%", label: "Faster time-to-revenue vs. traditional build" },
-  { value: "±3%", label: "Typical variance from fixed factory quote" },
+  { value: "2.40 × 4.05m", label: "The single CLT module every typology is built from" },
+  { value: "0%", label: "Unpredictable costs — factory price fixed before mobilisation" },
   { value: "5", label: "Business days to initial feasibility outline" },
-  { value: "6", label: "Proven typologies, fully specified" },
+  { value: "4", label: "Proven typologies, fully specified" },
 ];
 
 export default function B2BValuePage() {
@@ -82,9 +82,9 @@ export default function B2BValuePage() {
           "Licensed: your delivery team builds under our technical supervision",
           "Both models include structural warranty and after-care support",
         ]}
-        imageLabel="Delivery Team — Site Handover Meeting"
-        href="/partnership"
-        linkLabel="Meet the Team Behind the System"
+        imageLabel="Place your image here: images/delivery-team.jpg"
+        href="/contact"
+        linkLabel="Talk to the Team"
       />
 
       <CtaBanner

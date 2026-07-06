@@ -34,7 +34,12 @@ export default function ContactPage() {
 
           <Reveal delay={0.2}>
             <div className="mt-12">
-              <ImagePlaceholder label="Studio — WHITE x P4Architecture" ratio="aspect-[16/10]" />
+              <ImagePlaceholder
+                label="Place your image here: images/studio-atelier.jpg"
+                src="/images/studio-atelier.jpg"
+                alt="WHITE x P4Architecture fabrication studio"
+                ratio="aspect-[16/10]"
+              />
             </div>
           </Reveal>
 
