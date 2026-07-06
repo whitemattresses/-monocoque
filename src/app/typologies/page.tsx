@@ -100,12 +100,17 @@ export default function TypologiesPage() {
               </p>
             </Reveal>
             <Reveal delay={0.22}>
-              <div className="mt-10">
+              <div className="mt-10 grid grid-cols-2 gap-6">
                 <ImagePlaceholder
                   label="Place your image here: images/module-system.jpg — see PDF: Standardization diagram (A. Balcony, B. Sleep, B+. Service Pod, C. Eat, B. Live)"
                   src="/images/module-system.jpg"
                   ratio="aspect-[3/4]"
-                  className="max-w-sm"
+                />
+                <ImagePlaceholder
+                  label="Place your image here: images/sleep-philosophy.jpg"
+                  src="/images/sleep-philosophy.jpg"
+                  alt="A quiet Monocoque interior, facing the sea"
+                  ratio="aspect-[3/4]"
                 />
               </div>
             </Reveal>
