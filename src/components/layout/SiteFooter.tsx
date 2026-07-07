@@ -9,8 +9,7 @@ export default function SiteFooter() {
           <p className="font-serif text-2xl tracking-[0.08em]">MONOCOQUE</p>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-cream/60">
             A prefabricated cross-laminated timber system, built from a
-            single 2.40 × 4.05m module. A creation of WHITE, designed in
-            collaboration with P4Architecture.
+            single 2.40 × 4.05m module.
           </p>
         </div>
 
@@ -42,9 +41,7 @@ export default function SiteFooter() {
             Contact
           </p>
           <ul className="mt-5 space-y-3 text-sm text-cream/70">
-            <li>partnerships@monocoque.build</li>
-            <li>+1 (000) 000&nbsp;0000</li>
-            <li>By appointment — global</li>
+            <li>info@monocoque.gr</li>
           </ul>
         </div>
 
@@ -53,19 +50,22 @@ export default function SiteFooter() {
             For Developers
           </p>
           <p className="mt-5 text-sm leading-relaxed text-cream/70">
-            Request the technical dossier and site-feasibility checklist for
-            your next hospitality asset.
+            Discuss your site requirements and receive a preliminary
+            feasibility assessment, indicative delivery timeline, and
+            recommended Monocoque configuration for your project.
           </p>
           <Link href="/contact" className="btn-outline-inverse mt-6">
-            Request Dossier
+            Get in Touch
           </Link>
         </div>
       </div>
 
       <div className="border-t border-line-inverse">
-        <div className="container-editorial flex flex-col gap-3 py-6 text-xs text-cream/45 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} Monocoque. All rights reserved.</p>
-          <p>A collaboration between WHITE and P4Architecture.</p>
+        <div className="container-editorial py-6 text-xs text-cream/45">
+          <p>
+            © {new Date().getFullYear()} Monocoque. A creation of WHITE, in
+            collaboration with P4Architecture.
+          </p>
         </div>
       </div>
     </footer>

@@ -19,6 +19,7 @@ const typologies = [
     modules: "Live",
     description:
       "A single elemental module — the base unit of the whole system, on its own. Used as a compact studio, a home office, or an auxiliary pavilion alongside a larger configuration.",
+    useCase: "Ideal for spa pavilions, private office suites, or concierge pods.",
     imageLabel: "Place your image here: images/typology-xs.jpg",
     imageSrc: "/images/typology-xs.jpg",
   },
@@ -28,6 +29,7 @@ const typologies = [
     modules: "Sleep + Service Pod",
     description:
       "Two modules, end to end: a sleeping module and a service pod combining bathroom and kitchenette. The complete compact suite for a single guest or couple.",
+    useCase: "Designed for boutique hotel rooms, glamping villas, or solo retreat units.",
     imageLabel: "Place your image here: images/typology-small.jpg",
     imageSrc: "/images/typology-small.jpg",
   },
@@ -37,6 +39,7 @@ const typologies = [
     modules: "Sleep + Service Pod + Live",
     description:
       "The Small configuration extended by one module — a dedicated living space added alongside the sleeping and service modules, for longer stays.",
+    useCase: "A premium suite for extended stays — flexible enough for couples or business travellers.",
     imageLabel: "Place your image here: images/typology-medium.jpg",
     imageSrc: "/images/typology-medium.jpg",
   },
@@ -46,6 +49,7 @@ const typologies = [
     modules: "Balcony + Sleep + Service Pod + Eat + Live + Balcony",
     description:
       "The full sequence — sleeping, service, dining, and living modules bookended by two covered terraces, one at each end of the shell.",
+    useCase: "The flagship unit. Family villas, honeymoon suites, or anchor rooms for luxury resorts.",
     imageLabel: "Place your image here: images/typology-large.jpg",
     imageSrc: "/images/typology-large.jpg",
   },
@@ -105,12 +109,14 @@ export default function TypologiesPage() {
                   label="Place your image here: images/module-system.jpg — see PDF: Standardization diagram (A. Balcony, B. Sleep, B+. Service Pod, C. Eat, B. Live)"
                   src="/images/module-system.jpg"
                   ratio="aspect-[3/4]"
+                  fit="contain"
                 />
                 <ImagePlaceholder
                   label="Place your image here: images/sleep-philosophy.jpg"
                   src="/images/sleep-philosophy.jpg"
                   alt="A quiet Monocoque interior, facing the sea"
                   ratio="aspect-[3/4]"
+                  fit="contain"
                 />
               </div>
             </Reveal>

@@ -45,9 +45,7 @@ export default function ContactPage() {
 
           <Reveal delay={0.26}>
             <div className="mt-10 space-y-3 border-t border-line pt-8 text-sm text-charcoal/65">
-              <p>partnerships@monocoque.build</p>
-              <p>+1 (000) 000 0000</p>
-              <p>By appointment — global</p>
+              <p>info@monocoque.gr</p>
             </div>
           </Reveal>
         </div>

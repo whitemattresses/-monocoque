@@ -6,6 +6,7 @@ type TypologyCardProps = {
   sizeLabel: string;
   modules: string;
   description: string;
+  useCase: string;
   imageLabel: string;
   imageSrc?: string;
   delay?: number;
@@ -16,6 +17,7 @@ export default function TypologyCard({
   sizeLabel,
   modules,
   description,
+  useCase,
   imageLabel,
   imageSrc,
   delay = 0,
@@ -34,6 +36,9 @@ export default function TypologyCard({
       </p>
       <p className="mt-4 text-sm leading-relaxed text-charcoal/65">
         {description}
+      </p>
+      <p className="mt-3 text-sm leading-relaxed text-wood">
+        {useCase}
       </p>
     </Reveal>
   );

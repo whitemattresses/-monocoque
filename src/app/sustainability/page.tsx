@@ -58,15 +58,16 @@ export default function SustainabilityPage() {
         ]}
         imageLabel="Place your image here: images/the-logic-assembly.jpg"
         imageSrc="/images/the-logic-assembly.jpg"
+        imageFit="contain"
         href="/the-logic"
         linkLabel="See the Full System Logic"
         reverse
       />
 
       <CtaBanner
-        title="Request the Full Sustainability Dossier"
-        description="Get lifecycle assessment data, certification documentation, and carbon modelling for your specific site and typology."
-        primaryLabel="Request the Dossier"
+        title="Let's Discuss Your Site"
+        description="Get in touch to discuss your project requirements."
+        primaryLabel="Get in Touch"
       />
     </>
   );

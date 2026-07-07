@@ -15,22 +15,22 @@ const pillars = [
   {
     index: "01",
     title: "One Season, Not Several",
-    copy: "Factory fabrication runs while site preparation happens in parallel — a Monocoque asset can go from order to an assembled, occupiable structure within a single season.",
+    copy: "Factory fabrication runs while site preparation happens in parallel — a Monocoque asset can go from order to an assembled, occupiable structure within a single season, meaning an earlier opening and earlier operating revenue.",
   },
   {
     index: "02",
     title: "0% Unpredictable Costs",
-    copy: "Panel pricing is fixed at the factory before site mobilisation begins — replacing the cost overruns typical of traditional Greek construction with 100% price transparency.",
+    copy: "Panel pricing is fixed at the factory before site mobilisation begins — replacing the cost overruns typical of traditional Greek construction with 100% price transparency and materially reduced investment risk.",
   },
   {
     index: "03",
     title: "Consistent Build Quality",
-    copy: "Every module is milled and dry-fitted in the factory to the same tolerances — every unit meets the same standard, regardless of site conditions.",
+    copy: "Every module is milled and dry-fitted in the factory to the same tolerances — every unit meets the same standard, regardless of site conditions, protecting a consistent guest experience across the portfolio.",
   },
   {
     index: "04",
     title: "Reduced Site Risk",
-    copy: "Days of crane assembly replace months of on-site construction, cutting exposure to weather delays, labour shortages, and site incidents.",
+    copy: "Days of crane assembly replace months of on-site construction, cutting exposure to weather delays, labour shortages, and site incidents — and the risk they pose to the delivery timeline.",
   },
   {
     index: "05",

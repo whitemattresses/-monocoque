@@ -37,27 +37,71 @@ export default function ContactForm() {
         </label>
         <label className="block">
           <span className="tracking-wide-label text-[0.68rem] uppercase text-charcoal/50">
-            Company
-          </span>
-          <input type="text" className={`mt-3 ${inputClasses}`} />
-        </label>
-        <label className="block">
-          <span className="tracking-wide-label text-[0.68rem] uppercase text-charcoal/50">
             Email
           </span>
           <input required type="email" className={`mt-3 ${inputClasses}`} />
         </label>
         <label className="block">
           <span className="tracking-wide-label text-[0.68rem] uppercase text-charcoal/50">
-            Phone
+            Project Type
           </span>
-          <input type="tel" className={`mt-3 ${inputClasses}`} />
+          <select required defaultValue="" className={`mt-3 ${inputClasses}`}>
+            <option value="" disabled>
+              Select project type
+            </option>
+            <option>Boutique Hotel</option>
+            <option>Resort Expansion</option>
+            <option>Luxury Villa Development</option>
+            <option>Eco Retreat</option>
+            <option>Private Residence</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label className="block">
+          <span className="tracking-wide-label text-[0.68rem] uppercase text-charcoal/50">
+            Number of Units
+          </span>
+          <select defaultValue="" className={`mt-3 ${inputClasses}`}>
+            <option value="" disabled>
+              Select a range
+            </option>
+            <option>1–5</option>
+            <option>5–20</option>
+            <option>20+</option>
+          </select>
+        </label>
+        <label className="block">
+          <span className="tracking-wide-label text-[0.68rem] uppercase text-charcoal/50">
+            Site Status
+          </span>
+          <select defaultValue="" className={`mt-3 ${inputClasses}`}>
+            <option value="" disabled>
+              Select site status
+            </option>
+            <option>Land acquired</option>
+            <option>Under evaluation</option>
+            <option>Existing hospitality asset</option>
+            <option>Planning phase</option>
+          </select>
+        </label>
+        <label className="block">
+          <span className="tracking-wide-label text-[0.68rem] uppercase text-charcoal/50">
+            Target Timeline
+          </span>
+          <select defaultValue="" className={`mt-3 ${inputClasses}`}>
+            <option value="" disabled>
+              Select a timeline
+            </option>
+            <option>Immediate</option>
+            <option>6–12 months</option>
+            <option>12–24 months</option>
+          </select>
         </label>
       </div>
 
       <label className="block">
         <span className="tracking-wide-label text-[0.68rem] uppercase text-charcoal/50">
-          Site Location & Project Brief
+          Message (Optional)
         </span>
         <textarea
           rows={5}
