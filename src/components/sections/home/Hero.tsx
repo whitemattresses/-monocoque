@@ -56,7 +56,7 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
           className="mt-5 max-w-xl text-base leading-relaxed text-cream/65 md:text-lg"
         >
-          Monocoque is a system of prefabricated timber cabins, designed and
+          Monocoque is a modular timber hospitality system, designed and
           manufactured for boutique hotels, eco resorts, and luxury retreat
           developments. Each unit is built in a factory, transported
           complete, and assembled on site — in weeks, not months.
@@ -75,7 +75,7 @@ export default function Hero() {
             href="/contact"
             className="tracking-wide-label text-[0.72rem] uppercase text-cream/80 hover:text-cream"
           >
-            Enquire for Your Site →
+            Discuss Your Site →
           </Link>
         </motion.div>
       </div>

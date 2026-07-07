@@ -4,7 +4,6 @@ import SplitFeature from "@/components/sections/SplitFeature";
 import TypologiesPreview from "@/components/sections/home/TypologiesPreview";
 import B2BValuePreview from "@/components/sections/home/B2BValuePreview";
 import CtaBanner from "@/components/sections/CtaBanner";
-import Reveal from "@/components/ui/Reveal";
 
 export default function Home() {
   return (
@@ -23,6 +22,7 @@ export default function Home() {
         ]}
         imageLabel="Place your image here: images/the-logic-assembly.jpg"
         imageSrc="/images/the-logic-assembly.jpg"
+        imageFit="contain"
         href="/the-logic"
         linkLabel="Read the Full Logic"
       />
@@ -46,17 +46,6 @@ export default function Home() {
       />
 
       <B2BValuePreview />
-
-      <section className="section-y border-b border-line">
-        <div className="container-editorial text-center">
-          <Reveal>
-            <p className="mx-auto max-w-2xl font-serif text-xl italic leading-relaxed text-charcoal/60 md:text-2xl">
-              A creation of WHITE, designed in collaboration with
-              P4Architecture.
-            </p>
-          </Reveal>
-        </div>
-      </section>
 
       <CtaBanner
         title="Bring Monocoque to Your Next Site"
