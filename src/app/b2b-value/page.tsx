@@ -82,8 +82,10 @@ export default function B2BValuePage() {
           "Licensed: your delivery team builds under our technical supervision",
           "Both models include structural warranty and after-care support",
         ]}
-        imageLabel="Place your image here: images/delivery-factory.jpg"
-        imageSrc="/images/delivery-factory.jpg"
+        imageLabel="Place your image here: images/delivery-cabin-dusk.jpg"
+        imageSrc="/images/delivery-cabin-dusk.jpg"
+        imageFit="contain"
+        imageRatio="aspect-[3/2]"
         href="/contact"
         linkLabel="Talk to the Team"
       />
