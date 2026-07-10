@@ -20,9 +20,10 @@ export default function Home() {
           "Factory fabrication runs while site preparation happens in parallel",
           "Dry, crane-assisted assembly — no curing time, no weather delays",
         ]}
-        imageLabel="Place your image here: images/the-logic-assembly.jpg"
-        imageSrc="/images/the-logic-assembly.jpg"
+        imageLabel="Place your image here: images/the-logic-modules-lot.jpg"
+        imageSrc="/images/the-logic-modules-lot.jpg"
         imageFit="contain"
+        imageRatio="aspect-[3/2]"
         href="/the-logic"
         linkLabel="Read the Full Logic"
       />

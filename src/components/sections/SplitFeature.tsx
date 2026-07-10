@@ -11,6 +11,7 @@ type SplitFeatureProps = {
   imageSrc?: string;
   imageFit?: "cover" | "contain";
   imageContainBg?: string;
+  imageRatio?: string;
   href: string;
   linkLabel: string;
   reverse?: boolean;
@@ -26,6 +27,7 @@ export default function SplitFeature({
   imageSrc,
   imageFit = "cover",
   imageContainBg,
+  imageRatio,
   href,
   linkLabel,
   reverse = false,
@@ -48,6 +50,7 @@ export default function SplitFeature({
               dark={dark}
               fit={imageFit}
               {...(imageContainBg ? { containBg: imageContainBg } : {})}
+              {...(imageRatio ? { ratio: imageRatio } : {})}
             />
           </Reveal>
         </div>
