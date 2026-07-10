@@ -2,8 +2,8 @@ import Reveal from "@/components/ui/Reveal";
 
 const stats = [
   { value: "2.40 × 4.05m", label: "The single CLT module every typology is built from" },
-  { value: "0%", label: "Unpredictable costs — factory pricing agreed before site work begins" },
-  { value: "1", label: "Season, typically, from order to a site-assembled cabin" },
+  { value: "0%", label: "Fixed factory pricing, agreed before site work begins" },
+  { value: "1", label: "Season, typically, from order to a site-assembled structure" },
 ];
 
 export default function Philosophy() {

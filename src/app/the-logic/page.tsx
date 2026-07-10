@@ -48,7 +48,7 @@ const comparisonRows = [
   {
     label: "Cost Predictability",
     conventional: "Exposed to labour shortages, weather delays, and material price swings.",
-    monocoque: "0% unpredictable costs — factory pricing is fixed before site mobilisation begins.",
+    monocoque: "Factory pricing agreed before site mobilisation begins.",
   },
   {
     label: "On-Site Labour",
@@ -73,7 +73,7 @@ export default function TheLogicPage() {
       <PageHero
         eyebrow="The Logic"
         title="A Product, Not a Construction Site"
-        description="Monocoque treats the cabin as a single engineered object — designed once, fabricated complete in a factory, and assembled on site rather than built from it, module by module."
+        description="Monocoque treats the hospitality unit as a single engineered object — designed once, fabricated complete in a factory, and assembled on site rather than built from it, module by module."
       />
 
       <ProcessSteps steps={steps} />
@@ -87,8 +87,10 @@ export default function TheLogicPage() {
           "Continuous insulation and cladding reduce secondary trades on site",
           "A rigid shell suited to coastal wind exposure and island sites",
         ]}
-        imageLabel="Place your image here: images/the-logic-structure.jpg"
-        imageSrc="/images/the-logic-structure.jpg"
+        imageLabel="Place your image here: images/the-logic-structure.png"
+        imageSrc="/images/the-logic-structure.png"
+        imageFit="contain"
+        imageContainBg="bg-cream"
         href="/sustainability"
         linkLabel="See the Material's Impact"
       />

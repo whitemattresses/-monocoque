@@ -106,10 +106,11 @@ export default function TypologiesPage() {
             <Reveal delay={0.22}>
               <div className="mt-10 grid grid-cols-2 gap-6">
                 <ImagePlaceholder
-                  label="Place your image here: images/module-system.jpg — see PDF: Standardization diagram (A. Balcony, B. Sleep, B+. Service Pod, C. Eat, B. Live)"
-                  src="/images/module-system.jpg"
+                  label="Place your image here: images/module-system.png — see PDF: Standardization diagram (A. Balcony, B. Sleep, B+. Service Pod, C. Eat, B. Live)"
+                  src="/images/module-system.png"
                   ratio="aspect-[3/4]"
                   fit="contain"
+                  containBg="bg-cream"
                 />
                 <ImagePlaceholder
                   label="Place your image here: images/sleep-philosophy.jpg"
@@ -190,9 +191,9 @@ export default function TypologiesPage() {
       </section>
 
       <CtaBanner
-        title="Request Full Typology Specifications"
-        description="Get detailed floor plans, structural specifications, and finish options for every typology in the Monocoque range."
-        primaryLabel="Request Specifications"
+        title="Find the Right Monocoque Configuration"
+        description="Share your site and programme, and we'll help you choose the right module sequence for your project."
+        primaryLabel="Discuss Your Project"
       />
     </>
   );

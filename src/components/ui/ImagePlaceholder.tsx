@@ -6,6 +6,7 @@ type ImagePlaceholderProps = {
   dark?: boolean;
   className?: string;
   fit?: "cover" | "contain";
+  containBg?: string;
 };
 
 export default function ImagePlaceholder({
@@ -16,12 +17,13 @@ export default function ImagePlaceholder({
   dark = false,
   className = "",
   fit = "cover",
+  containBg = "bg-cream-dim",
 }: ImagePlaceholderProps) {
   if (src) {
     return (
       <div
         className={`overflow-hidden ${ratio} w-full ${
-          fit === "contain" ? "bg-cream-dim" : ""
+          fit === "contain" ? containBg : ""
         } ${className}`}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -23,7 +23,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="tracking-wide-label text-[0.7rem] uppercase text-wood-light"
+          className="tracking-wide-label text-[0.7rem] uppercase text-cream [text-shadow:0_2px_10px_rgba(0,0,0,0.55)]"
         >
           Prefabricated CLT Systems for Luxury Hospitality
         </motion.p>

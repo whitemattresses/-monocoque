@@ -19,8 +19,8 @@ const pillars = [
   },
   {
     index: "02",
-    title: "0% Unpredictable Costs",
-    copy: "Panel pricing is fixed at the factory before site mobilisation begins — replacing the cost overruns typical of traditional Greek construction with 100% price transparency and materially reduced investment risk.",
+    title: "Fixed Factory Pricing",
+    copy: "Panel pricing is agreed at the factory before site mobilisation begins — replacing the cost overruns typical of traditional Greek construction with 100% price transparency and materially reduced investment risk.",
   },
   {
     index: "03",
@@ -46,9 +46,9 @@ const pillars = [
 
 const stats = [
   { value: "2.40 × 4.05m", label: "The single CLT module every typology is built from" },
-  { value: "0%", label: "Unpredictable costs — factory price fixed before mobilisation" },
+  { value: "0%", label: "Factory pricing fixed before site mobilisation" },
   { value: "5", label: "Business days to initial feasibility outline" },
-  { value: "4", label: "Proven typologies, fully specified" },
+  { value: "Turnkey", label: "Delivery — fabrication, logistics, and assembly under one team" },
 ];
 
 export default function B2BValuePage() {
@@ -82,7 +82,8 @@ export default function B2BValuePage() {
           "Licensed: your delivery team builds under our technical supervision",
           "Both models include structural warranty and after-care support",
         ]}
-        imageLabel="Place your image here: images/delivery-team.jpg"
+        imageLabel="Place your image here: images/delivery-factory.jpg"
+        imageSrc="/images/delivery-factory.jpg"
         href="/contact"
         linkLabel="Talk to the Team"
       />
