@@ -36,7 +36,7 @@ const meta: LocalizedDictionary["meta"] = {
 
 const nav: LocalizedDictionary["nav"] = {
   home: "Αρχική",
-  theLogic: "Η Λογική",
+  theLogic: "The Logic",
   typologies: "Typologies",
   sustainability: "Sustainability",
   b2bValue: "B2B Value",
@@ -52,7 +52,7 @@ const footer: LocalizedDictionary["footer"] = {
   forDevelopersHeading: "For Developers",
   forDevelopersText:
     "Συζητήστε μαζί μας τις απαιτήσεις του έργου σας και λάβετε μια πρώτη αξιολόγηση, ενδεικτικό χρονοδιάγραμμα υλοποίησης και προτεινόμενη διαμόρφωση Monocoque.",
-  getInTouch: "Ελάτε σε Επαφή",
+  getInTouch: "Get in Touch",
   copyright: "© {year} Monocoque.",
   creditLine: "Δημιουργία της WHITE, σε συνεργασία με την P4Architecture.",
 };
