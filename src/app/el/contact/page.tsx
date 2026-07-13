@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import ContactPageContent from "@/components/pages/ContactPageContent";
+import { el } from "@/i18n/dictionaries/el";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Enquire about bringing the Monocoque CLT system to your next luxury hospitality site.",
+  title: el.contactPage.meta.title,
+  description: el.contactPage.meta.description,
 };
 
 export default function ContactPage() {
-  return <ContactPageContent locale="en" />;
+  return <ContactPageContent locale="el" />;
 }

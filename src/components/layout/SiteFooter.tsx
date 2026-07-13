@@ -2,11 +2,19 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navLinks } from "@/lib/nav";
+import { getNavLinks } from "@/lib/nav";
+import { getDictionary } from "@/i18n/getDictionary";
+import { ROUTES } from "@/i18n/routes";
+import { withLocale, splitLocaleFromPathname } from "@/i18n/paths";
 
 export default function SiteFooter() {
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  const { locale, canonicalPath } = splitLocaleFromPathname(pathname);
+  const isHome = canonicalPath === "/";
+  const dict = getDictionary(locale);
+  const navLinks = getNavLinks(locale, dict);
+  const homeHref = withLocale(ROUTES.home, locale);
+  const contactHref = withLocale(ROUTES.contact, locale);
 
   return (
     <footer className="border-t border-line-inverse bg-charcoal text-cream">
@@ -14,19 +22,18 @@ export default function SiteFooter() {
         <div>
           <p className="font-serif text-2xl tracking-[0.08em]">MONOCOQUE</p>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-cream/60">
-            A modular timber hospitality system built around a single
-            engineered 2.40 × 4.05m CLT module.
+            {dict.footer.description}
           </p>
         </div>
 
         <div>
           <p className="tracking-wide-label text-[0.68rem] uppercase text-wood-light">
-            Explore
+            {dict.footer.exploreHeading}
           </p>
           <ul className="mt-5 space-y-3 text-sm">
             <li>
-              <Link href="/" className="text-cream/70 hover:text-cream">
-                Home
+              <Link href={homeHref} className="text-cream/70 hover:text-cream">
+                {dict.nav.home}
               </Link>
             </li>
             {navLinks.map((link) => (
@@ -44,24 +51,22 @@ export default function SiteFooter() {
 
         <div>
           <p className="tracking-wide-label text-[0.68rem] uppercase text-wood-light">
-            Contact
+            {dict.footer.contactHeading}
           </p>
           <ul className="mt-5 space-y-3 text-sm text-cream/70">
-            <li>info@monocoque.gr</li>
+            <li>{dict.footer.email}</li>
           </ul>
         </div>
 
         <div>
           <p className="tracking-wide-label text-[0.68rem] uppercase text-wood-light">
-            For Developers
+            {dict.footer.forDevelopersHeading}
           </p>
           <p className="mt-5 text-sm leading-relaxed text-cream/70">
-            Discuss your site requirements and receive a preliminary
-            feasibility assessment, indicative delivery timeline, and
-            recommended Monocoque configuration for your project.
+            {dict.footer.forDevelopersText}
           </p>
-          <Link href="/contact" className="btn-outline-inverse mt-6">
-            Get in Touch
+          <Link href={contactHref} className="btn-outline-inverse mt-6">
+            {dict.footer.getInTouch}
           </Link>
         </div>
       </div>
@@ -69,8 +74,8 @@ export default function SiteFooter() {
       <div className="border-t border-line-inverse">
         <div className="container-editorial py-6 text-xs text-cream/45">
           <p>
-            © {new Date().getFullYear()} Monocoque.
-            {isHome && " A creation of WHITE, in collaboration with P4Architecture."}
+            {dict.footer.copyright.replace("{year}", String(new Date().getFullYear()))}
+            {isHome && ` ${dict.footer.creditLine}`}
           </p>
         </div>
       </div>

@@ -11,7 +11,7 @@ type ValuePillarsProps = {
   eyebrow: string;
   title: string;
   description?: string;
-  pillars: Pillar[];
+  pillars: readonly Pillar[];
 };
 
 export default function ValuePillars({

@@ -10,7 +10,7 @@ type StatGridProps = {
   eyebrow: string;
   title: string;
   description?: string;
-  stats: Stat[];
+  stats: readonly Stat[];
   dark?: boolean;
 };
 

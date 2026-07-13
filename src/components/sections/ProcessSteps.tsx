@@ -9,7 +9,7 @@ type Step = {
 type ProcessStepsProps = {
   eyebrow?: string;
   title?: string;
-  steps: Step[];
+  steps: readonly Step[];
 };
 
 export default function ProcessSteps({

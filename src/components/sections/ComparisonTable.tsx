@@ -7,11 +7,24 @@ type Row = {
   monocoque: string;
 };
 
+type Headers = {
+  consideration: string;
+  conventional: string;
+  monocoque: string;
+};
+
 type ComparisonTableProps = {
   eyebrow: string;
   title: string;
   description?: string;
-  rows: Row[];
+  rows: readonly Row[];
+  headers?: Headers;
+};
+
+const defaultHeaders: Headers = {
+  consideration: "Consideration",
+  conventional: "Conventional Construction",
+  monocoque: "Monocoque",
 };
 
 export default function ComparisonTable({
@@ -19,6 +32,7 @@ export default function ComparisonTable({
   title,
   description,
   rows,
+  headers = defaultHeaders,
 }: ComparisonTableProps) {
   return (
     <section className="section-y border-b border-line">
@@ -31,13 +45,13 @@ export default function ComparisonTable({
               <thead>
                 <tr className="border-b border-line">
                   <th className="tracking-wide-label w-1/3 pb-4 text-[0.68rem] uppercase text-charcoal/50">
-                    Consideration
+                    {headers.consideration}
                   </th>
                   <th className="tracking-wide-label w-1/3 pb-4 text-[0.68rem] uppercase text-charcoal/50">
-                    Conventional Construction
+                    {headers.conventional}
                   </th>
                   <th className="tracking-wide-label w-1/3 pb-4 text-[0.68rem] uppercase text-wood">
-                    Monocoque
+                    {headers.monocoque}
                   </th>
                 </tr>
               </thead>

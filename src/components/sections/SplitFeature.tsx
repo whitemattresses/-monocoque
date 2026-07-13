@@ -6,7 +6,7 @@ type SplitFeatureProps = {
   eyebrow: string;
   title: string;
   description: string;
-  bullets?: string[];
+  bullets?: readonly string[];
   imageLabel: string;
   imageSrc?: string;
   imageFit?: "cover" | "contain";

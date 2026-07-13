@@ -3,8 +3,14 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
+import { getDictionary } from "@/i18n/getDictionary";
+import { ROUTES } from "@/i18n/routes";
+import { withLocale } from "@/i18n/paths";
+import type { Locale } from "@/i18n/config";
 
-export default function Hero() {
+export default function Hero({ locale }: { locale: Locale }) {
+  const { hero } = getDictionary(locale).home;
+
   return (
     <section className="relative overflow-hidden border-b border-line">
       <div className="absolute inset-0">
@@ -25,7 +31,7 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="tracking-wide-label text-[0.7rem] uppercase text-cream [text-shadow:0_2px_10px_rgba(0,0,0,0.55)]"
         >
-          Prefabricated CLT Systems for Luxury Hospitality
+          {hero.eyebrow}
         </motion.p>
 
         <motion.h1
@@ -34,7 +40,7 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="mt-7 max-w-4xl font-serif text-6xl leading-[1.03] text-cream md:text-8xl"
         >
-          Structure as Sanctuary
+          {hero.headline}
         </motion.h1>
 
         <motion.p
@@ -43,11 +49,7 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mt-8 max-w-xl text-lg leading-relaxed text-cream/80 md:text-xl"
         >
-          A monocoque is a shell where the structure and the space are the
-          same object. Monocoque builds on that logic in solid cross-laminated
-          timber — a self-supporting cabin with no internal columns, produced
-          in a factory, delivered by truck, and placed by crane in a single
-          season.
+          {hero.paragraph1}
         </motion.p>
 
         <motion.p
@@ -56,10 +58,7 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
           className="mt-5 max-w-xl text-base leading-relaxed text-cream/65 md:text-lg"
         >
-          Monocoque is a modular timber hospitality system, designed and
-          manufactured for boutique hotels, eco resorts, and luxury retreat
-          developments. Each unit is built in a factory, transported
-          complete, and assembled on site — in weeks, not months.
+          {hero.paragraph2}
         </motion.p>
 
         <motion.div
@@ -68,14 +67,14 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="mt-11 flex flex-wrap items-center gap-5"
         >
-          <Link href="/the-logic" className="btn-outline-inverse">
-            Discover the Logic
+          <Link href={withLocale(ROUTES.theLogic, locale)} className="btn-outline-inverse">
+            {hero.ctaPrimary}
           </Link>
           <Link
-            href="/contact"
+            href={withLocale(ROUTES.contact, locale)}
             className="tracking-wide-label text-[0.72rem] uppercase text-cream/80 hover:text-cream"
           >
-            Discuss Your Site →
+            {hero.ctaSecondary} →
           </Link>
         </motion.div>
       </div>

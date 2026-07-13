@@ -2,55 +2,46 @@ import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
+import { getDictionary } from "@/i18n/getDictionary";
+import { ROUTES } from "@/i18n/routes";
+import { withLocale } from "@/i18n/paths";
+import type { Locale } from "@/i18n/config";
 
-const typologies = [
-  {
-    name: "Small",
-    note: "19 m² — Sleep + Service Pod",
-    useCase: "Designed for boutique hotel rooms, glamping villas, or solo retreat units.",
-    image: "Place your image here: images/typology-small.jpg",
-    src: "/images/typology-small.jpg",
-  },
-  {
-    name: "Medium",
-    note: "29 m² — Sleep + Service Pod + Live",
-    useCase: "A premium suite for extended stays — flexible enough for couples or business travellers.",
-    image: "Place your image here: images/typology-medium.jpg",
-    src: "/images/typology-medium.jpg",
-  },
-  {
-    name: "Large",
-    note: "49 m² — Full module sequence",
-    useCase: "The flagship unit. Family villas, honeymoon suites, or anchor rooms for luxury resorts.",
-    image: "Place your image here: images/typology-large.jpg",
-    src: "/images/typology-large.jpg",
-  },
+// Images are language-neutral and aligned by position with the three
+// dictionary items (Small, Medium, Large).
+const images = [
+  { label: "Place your image here: images/typology-small.jpg", src: "/images/typology-small.jpg" },
+  { label: "Place your image here: images/typology-medium.jpg", src: "/images/typology-medium.jpg" },
+  { label: "Place your image here: images/typology-large.jpg", src: "/images/typology-large.jpg" },
 ];
 
-export default function TypologiesPreview() {
+export default function TypologiesPreview({ locale }: { locale: Locale }) {
+  const { typologiesPreview } = getDictionary(locale).home;
+  const typologiesHref = withLocale(ROUTES.typologies, locale);
+
   return (
     <section className="section-y border-b border-line">
       <div className="container-editorial">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <SectionHeading
-            eyebrow="Typologies"
-            title="One Module, Linked in Sequence"
-            description="Every typology is the same 2.40 × 4.05m CLT module, added end to end — the sequence changes, the engineered core does not."
+            eyebrow={typologiesPreview.eyebrow}
+            title={typologiesPreview.title}
+            description={typologiesPreview.description}
           />
           <Reveal delay={0.1}>
             <Link
-              href="/typologies"
+              href={typologiesHref}
               className="tracking-wide-label hidden shrink-0 items-center gap-3 text-[0.72rem] uppercase text-charcoal hover:text-wood md:flex"
             >
-              View All Typologies <span aria-hidden>→</span>
+              {typologiesPreview.viewAll} <span aria-hidden>→</span>
             </Link>
           </Reveal>
         </div>
 
         <div className="mt-16 grid gap-x-8 gap-y-14 md:grid-cols-3">
-          {typologies.map((item, i) => (
+          {typologiesPreview.items.map((item, i) => (
             <Reveal key={item.name} delay={i * 0.08}>
-              <ImagePlaceholder label={item.image} src={item.src} />
+              <ImagePlaceholder label={images[i].label} src={images[i].src} />
               <p className="mt-6 font-serif text-2xl">{item.name}</p>
               <p className="mt-2 text-sm tracking-wide text-charcoal/55">
                 {item.note}
@@ -64,10 +55,10 @@ export default function TypologiesPreview() {
 
         <Reveal delay={0.1}>
           <Link
-            href="/typologies"
+            href={typologiesHref}
             className="tracking-wide-label mt-14 inline-flex items-center gap-3 text-[0.72rem] uppercase text-charcoal hover:text-wood md:hidden"
           >
-            View All Typologies <span aria-hidden>→</span>
+            {typologiesPreview.viewAll} <span aria-hidden>→</span>
           </Link>
         </Reveal>
       </div>

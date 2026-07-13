@@ -3,6 +3,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "@/components/layout/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter";
+import HtmlLangSync from "@/components/layout/HtmlLangSync";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -37,6 +38,7 @@ export default function RootLayout({
       className={`${playfair.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-charcoal">
+        <HtmlLangSync />
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />

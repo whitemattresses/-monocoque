@@ -4,10 +4,20 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { navLinks } from "@/lib/nav";
+import { getNavLinks } from "@/lib/nav";
+import { getDictionary } from "@/i18n/getDictionary";
+import { ROUTES } from "@/i18n/routes";
+import { withLocale, splitLocaleFromPathname } from "@/i18n/paths";
+import LanguageSwitcher from "@/components/layout/LanguageSwitcher";
 
 export default function SiteHeader() {
   const pathname = usePathname();
+  const locale = splitLocaleFromPathname(pathname).locale;
+  const dict = getDictionary(locale);
+  const navLinks = getNavLinks(locale, dict);
+  const homeHref = withLocale(ROUTES.home, locale);
+  const contactHref = withLocale(ROUTES.contact, locale);
+
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -30,7 +40,7 @@ export default function SiteHeader() {
     >
       <div className="container-editorial flex h-20 items-center justify-between md:h-24">
         <Link
-          href="/"
+          href={homeHref}
           className="font-serif text-xl tracking-[0.08em] text-charcoal md:text-2xl"
         >
           MONOCOQUE
@@ -48,9 +58,10 @@ export default function SiteHeader() {
               {link.label}
             </Link>
           ))}
-          <Link href="/contact" className="btn-outline">
-            Enquire
+          <Link href={contactHref} className="btn-outline">
+            {dict.nav.enquire}
           </Link>
+          <LanguageSwitcher />
         </nav>
 
         <button
@@ -96,9 +107,10 @@ export default function SiteHeader() {
                   {link.label}
                 </Link>
               ))}
-              <Link href="/contact" onClick={closeMenu} className="btn-primary mt-4 w-fit">
-                Enquire
+              <Link href={contactHref} onClick={closeMenu} className="btn-primary mt-4 w-fit">
+                {dict.nav.enquire}
               </Link>
+              <LanguageSwitcher className="mt-6" />
             </nav>
           </motion.div>
         )}
