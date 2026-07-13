@@ -73,7 +73,7 @@ export default function TypologiesPageContent({ locale }: { locale: Locale }) {
                 <ImagePlaceholder
                   label="Place your image here: images/sleep-philosophy.jpg"
                   src="/images/sleep-philosophy.jpg"
-                  alt="A quiet Monocoque interior, facing the sea"
+                  alt={t.system.sleepImageAlt}
                   ratio="aspect-[3/4]"
                   fit="contain"
                 />

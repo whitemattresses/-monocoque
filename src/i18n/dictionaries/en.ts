@@ -167,6 +167,7 @@ export const en = {
       sleepPhilosophy: "Sleep Philosophy",
       paragraph2Suffix:
         "meets the CLT shell most directly: solid mass timber and continuous insulation hold out sound, temperature swings, and light, shaping a room built around undisturbed rest rather than fitted to it afterward.",
+      sleepImageAlt: "A quiet Monocoque interior, facing the sea",
     },
     range: {
       eyebrow: "The Range",

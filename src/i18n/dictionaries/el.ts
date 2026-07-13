@@ -273,6 +273,100 @@ const theLogicPage: LocalizedDictionary["theLogicPage"] = {
   },
 };
 
+const typologiesPage: LocalizedDictionary["typologiesPage"] = {
+  meta: {
+    title: "Typologies",
+    description:
+      "Τέσσερις τυπολογίες Monocoque, σχεδιασμένες από το ίδιο 2.40 × 4.05m CLT Module — Extra Small, Small, Medium και Large.",
+  },
+  hero: {
+    eyebrow: "Typologies",
+    title: "Ένα Module. Πολλές διαμορφώσεις.",
+    description:
+      "Κάθε τυπολογία του Monocoque βασίζεται στο ίδιο 2.40 × 4.05m CLT Module, το οποίο επαναλαμβάνεται και συνδέεται σε μια σταθερή δομή. Η σύνθεση και το μήκος αλλάζουν. Η βασική δομική λογική παραμένει η ίδια.",
+  },
+  system: {
+    eyebrow: "The System",
+    title: "Πέντε Modules. Μία λογική.",
+    paragraph1Prefix: "Κάθε Module έχει μια συγκεκριμένη λειτουργία —",
+    moduleNames: {
+      balcony: "Balcony",
+      sleep: "Sleep",
+      servicePod: "Service Pod",
+      eat: "Dining",
+      live: "Living",
+    },
+    paragraph1Or: "",
+    paragraph1Suffix:
+      ". Η σύνδεση των Modules δημιουργεί έναν ενιαίο εσωτερικό χώρο, όπου η χρήση καθορίζεται από τη θέση και τη σύνθεση, όχι από περιορισμούς της κατασκευής.",
+    paragraph2Prefix: "Το Sleep Module είναι το σημείο όπου η",
+    sleepPhilosophy: "φιλοσοφία ύπνου",
+    paragraph2Suffix:
+      "της WHITE συναντά τη δομή CLT. Η φυσική μάζα του ξύλου και η συνεχής θερμομόνωση περιορίζουν τον θόρυβο, τις μεταβολές της θερμοκρασίας και το εξωτερικό φως, δημιουργώντας έναν χώρο σχεδιασμένο γύρω από την ξεκούραση.",
+    sleepImageAlt: "Ένας εσωτερικός χώρος Monocoque όπου η ηρεμία, το φως και το τοπίο συνυπάρχουν.",
+  },
+  range: {
+    eyebrow: "The Range",
+    title: "Τέσσερις διαμορφώσεις. Μία ενιαία δομική λογική.",
+    description:
+      "Κάθε τυπολογία αποτελεί διαφορετική σύνθεση του ίδιου Module, επαναλαμβανόμενου σε διαφορετικό αριθμό. Οι παρακάτω διαμορφώσεις αποτελούν τη βάση του συστήματος και προσαρμόζονται στις ανάγκες κάθε τοποθεσίας κατά τη διαδικασία σχεδιασμού.",
+  },
+  items: [
+    {
+      name: "Extra Small",
+      sizeLabel: "1 Module",
+      modules: "Live",
+      description:
+        "Μια αυτόνομη, βασική μονάδα — η αφετηρία ολόκληρου του συστήματος. Μπορεί να λειτουργήσει ως μικρό studio, ιδιωτικό γραφείο ή βοηθητικό pavilion δίπλα σε μια μεγαλύτερη σύνθεση.",
+      useCase: "Ιδανικό για spa pavilions, ιδιωτικά office suites ή concierge pods.",
+    },
+    {
+      name: "Small",
+      sizeLabel: "19 m²",
+      modules: "Sleep + Service Pod",
+      description:
+        "Δύο Modules σε συνέχεια: ένας χώρος ύπνου και ένα Service Pod που περιλαμβάνει μπάνιο και χώρο προετοιμασίας γευμάτων. Μια ολοκληρωμένη, compact σουίτα για έναν επισκέπτη ή ένα ζευγάρι.",
+      useCase: "Σχεδιασμένο για boutique hotel rooms, glamping villas ή αυτόνομες μονάδες retreat.",
+    },
+    {
+      name: "Medium",
+      sizeLabel: "29 m²",
+      modules: "Sleep + Service Pod + Live",
+      description:
+        "Η Small διαμόρφωση επεκτείνεται με ένα επιπλέον Module, έναν ξεχωριστό χώρο διαμονής δίπλα στον χώρο ύπνου και το Service Pod.",
+      useCase: "Μια premium σουίτα για μεγαλύτερη διαμονή, σχεδιασμένη για ζευγάρια ή επαγγελματίες ταξιδιώτες.",
+    },
+    {
+      name: "Large",
+      sizeLabel: "49 m²",
+      modules: "Balcony + Sleep + Service Pod + Eat + Live + Balcony",
+      description:
+        "Η πλήρης σύνθεση του συστήματος — χώροι ύπνου, εξυπηρέτησης, φαγητού και διαμονής, πλαισιωμένοι από δύο στεγασμένες βεράντες στα άκρα της μονάδας.",
+      useCase:
+        "Η κορυφαία διαμόρφωση του Monocoque. Ιδανική για οικογενειακές villas, honeymoon suites ή βασικές μονάδες πολυτελών resorts.",
+    },
+  ],
+  floorPlans: {
+    eyebrow: "Floor Plans",
+    title: "Σχεδιασμός βασισμένος στην ίδια δομική λογική",
+    description:
+      "Η δομή ακολουθεί έναν σταθερό ρυθμό 1,2m, δημιουργώντας ευελιξία στον σχεδιασμό και στη διαμόρφωση κάθε χώρου. Τα ανοίγματα τοποθετούνται με στόχο τον έλεγχο του φυσικού φωτός, τον φυσικό αερισμό και τη δημιουργία άμεσης σχέσης με το τοπίο.",
+    names: ["Extra Small", "Small", "Medium", "Large"],
+  },
+  customisation: {
+    eyebrow: "Customisation",
+    title: "Πέρα από τις βασικές διαμορφώσεις",
+    description:
+      "Οι τέσσερις τυπολογίες αποτελούν τις βασικές συνθέσεις του συστήματος Monocoque. Για έργα με ιδιαίτερη μορφολογία εδάφους, ειδικές απαιτήσεις ή ένα ξεχωριστό αρχιτεκτονικό όραμα, η ομάδα σχεδιασμού συνεργάζεται με τον αρχιτέκτονα του έργου ώστε να προσαρμόσει τη σύνθεση στις ανάγκες της τοποθεσίας, διατηρώντας παράλληλα τις δομικές προδιαγραφές που εξασφαλίζουν την αξιοπιστία της κατασκευής.",
+  },
+  cta: {
+    title: "Βρείτε τη σωστή διαμόρφωση Monocoque",
+    description:
+      "Μοιραστείτε μαζί μας την τοποθεσία και τις ανάγκες του έργου σας. Η ομάδα μας θα σας βοηθήσει να επιλέξετε την κατάλληλη σύνθεση Monocoque.",
+    primaryLabel: "Ας συζητήσουμε το έργο σας",
+  },
+};
+
 export const el: LocalizedDictionary = {
   ...placeholder,
   meta,
@@ -281,4 +375,5 @@ export const el: LocalizedDictionary = {
   common,
   home,
   theLogicPage,
+  typologiesPage,
 };
