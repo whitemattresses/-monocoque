@@ -45,14 +45,14 @@ const nav: LocalizedDictionary["nav"] = {
 
 const footer: LocalizedDictionary["footer"] = {
   description:
-    "Ένα modular timber hospitality system, βασισμένο σε ένα ενιαίο engineered 2.40 × 4.05m CLT Module.",
+    "Ένα modular timber hospitality system που βασίζεται σε ένα ενιαίο CLT Module διαστάσεων 2.40 × 4.05m.",
   exploreHeading: "Explore",
   contactHeading: "Επικοινωνία",
   email: "info@monocoque.gr",
-  forDevelopersHeading: "For Developers",
+  forDevelopersHeading: "Για Developers",
   forDevelopersText:
-    "Συζητήστε μαζί μας τις απαιτήσεις του έργου σας και λάβετε μια πρώτη αξιολόγηση, ενδεικτικό χρονοδιάγραμμα υλοποίησης και προτεινόμενη διαμόρφωση Monocoque.",
-  getInTouch: "Get in Touch",
+    "Συζητήστε μαζί μας τις ανάγκες του έργου σας και λάβετε μια πρώτη αξιολόγηση, ένα ενδεικτικό χρονοδιάγραμμα υλοποίησης και την προτεινόμενη διαμόρφωση Monocoque για το έργο σας.",
+  getInTouch: "Επικοινωνήστε μαζί μας",
   copyright: "© {year} Monocoque.",
   creditLine: "Δημιουργία της WHITE, σε συνεργασία με την P4Architecture.",
 };
@@ -517,6 +517,48 @@ const b2bValuePage: LocalizedDictionary["b2bValuePage"] = {
   },
 };
 
+const contactPage: LocalizedDictionary["contactPage"] = {
+  meta: {
+    title: "Contact",
+    description:
+      "Επικοινωνήστε μαζί μας για να συζητήσουμε την ενσωμάτωση του συστήματος Monocoque CLT στο επόμενο έργο φιλοξενίας σας.",
+  },
+  eyebrow: "Contact",
+  title: "Ας συζητήσουμε το έργο σας",
+  description:
+    "Περιγράψτε μας την τοποθεσία και τις βασικές ανάγκες του έργου σας. Η ομάδα μας θα επικοινωνήσει μαζί σας το συντομότερο δυνατό, προτείνοντας μια πρώτη προσέγγιση του έργου και ένα ενδεικτικό χρονοδιάγραμμα υλοποίησης.",
+  imageAlt: placeholder.contactPage.imageAlt,
+  email: "info@monocoque.gr",
+  form: {
+    fullName: "Ονοματεπώνυμο",
+    email: "Email",
+    projectType: {
+      label: "Τύπος έργου",
+      placeholder: "Επιλέξτε τύπο έργου",
+      options: placeholder.contactPage.form.projectType.options,
+    },
+    numberOfUnits: {
+      label: "Αριθμός μονάδων",
+      placeholder: "Επιλέξτε εύρος",
+      options: placeholder.contactPage.form.numberOfUnits.options,
+    },
+    siteStatus: {
+      label: "Στάδιο έργου",
+      placeholder: "Επιλέξτε στάδιο έργου",
+      options: placeholder.contactPage.form.siteStatus.options,
+    },
+    targetTimeline: {
+      label: "Επιθυμητό χρονοδιάγραμμα",
+      placeholder: "Επιλέξτε χρονοδιάγραμμα",
+      options: placeholder.contactPage.form.targetTimeline.options,
+    },
+    message: "Μήνυμα (προαιρετικό)",
+    submit: "Αποστολή αιτήματος",
+    thankYouTitle: placeholder.contactPage.form.thankYouTitle,
+    thankYouBody: placeholder.contactPage.form.thankYouBody,
+  },
+};
+
 export const el: LocalizedDictionary = {
   ...placeholder,
   meta,
@@ -528,4 +570,5 @@ export const el: LocalizedDictionary = {
   typologiesPage,
   sustainabilityPage,
   b2bValuePage,
+  contactPage,
 };
