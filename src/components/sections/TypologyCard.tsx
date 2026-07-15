@@ -10,6 +10,8 @@ type TypologyCardProps = {
   imageLabel: string;
   imageSrc?: string;
   delay?: number;
+  exploreLabel: string;
+  onExploreInterior: () => void;
 };
 
 export default function TypologyCard({
@@ -21,6 +23,8 @@ export default function TypologyCard({
   imageLabel,
   imageSrc,
   delay = 0,
+  exploreLabel,
+  onExploreInterior,
 }: TypologyCardProps) {
   return (
     <Reveal delay={delay}>
@@ -41,6 +45,19 @@ export default function TypologyCard({
         <p className="mt-3 text-sm leading-relaxed text-wood">
           {useCase}
         </p>
+        <button
+          type="button"
+          onClick={onExploreInterior}
+          className="tracking-wide-label group mt-5 inline-flex items-center gap-3 text-[0.7rem] uppercase text-charcoal transition-colors duration-300 hover:text-wood"
+        >
+          {exploreLabel}
+          <span
+            aria-hidden
+            className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1"
+          >
+            →
+          </span>
+        </button>
       </div>
     </Reveal>
   );

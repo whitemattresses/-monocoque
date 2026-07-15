@@ -222,6 +222,12 @@ export const en = {
       description:
         "The four typologies shown here represent Monocoque's proven module sequences. For sites with unusual topography, code requirements, or a distinct architectural brief, our design team works directly with your architect of record to adapt the sequence to a bespoke plan — without leaving the engineered tolerances that make the system reliable to build.",
     },
+    walkthrough: {
+      exploreInterior: "Explore Interior",
+      instructions: "Click to enter — WASD to move — Mouse to look around — ESC to exit",
+      controlsHint: "WASD — Move  /  Mouse — Look  /  ESC — Exit",
+      unsupported: "Please use a desktop browser for the 3D experience",
+    },
     cta: {
       title: "Find the Right Monocoque Configuration",
       description: "Share your site and programme, and we'll help you choose the right module sequence for your project.",

@@ -1,9 +1,16 @@
+"use client";
+
+import { useState } from "react";
 import PageHero from "@/components/sections/PageHero";
 import TypologyCard from "@/components/sections/TypologyCard";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
+import ImageLightbox from "@/components/ui/ImageLightbox";
 import Reveal from "@/components/ui/Reveal";
 import CtaBanner from "@/components/sections/CtaBanner";
+import TypologyWalkthrough, {
+  type WalkthroughRoom,
+} from "@/components/three/TypologyWalkthrough";
 import { getDictionary } from "@/i18n/getDictionary";
 import { ROUTES } from "@/i18n/routes";
 import { withLocale } from "@/i18n/paths";
@@ -25,9 +32,33 @@ const floorPlanImages = [
   { src: "/images/floorplan-large.jpg", label: "Place your image here: images/floorplan-large.jpg" },
 ];
 
+// One CLT module is 2.40 x 4.05m; each typology's interior length is that
+// module repeated end to end (1, 2, 3, and 5 modules respectively).
+const MODULE_LENGTH = 4.05;
+const MODULE_WIDTH = 2.4;
+const CEILING_HEIGHT = 2.8;
+const roomDimensions = [1, 2, 3, 5].map((modules) => ({
+  length: MODULE_LENGTH * modules,
+  width: MODULE_WIDTH,
+  height: CEILING_HEIGHT,
+}));
+
 export default function TypologiesPageContent({ locale }: { locale: Locale }) {
   const { typologiesPage: t, common } = getDictionary(locale);
   const moduleNames = t.system.moduleNames;
+
+  const [activeRoom, setActiveRoom] = useState<WalkthroughRoom | null>(null);
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+
+  const handleExploreInterior = (index: number) => {
+    const isMobile =
+      typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
+    if (isMobile) {
+      setLightbox({ src: typologyImages[index].src, alt: t.items[index].name });
+    } else {
+      setActiveRoom({ ...roomDimensions[index], name: t.items[index].name });
+    }
+  };
 
   return (
     <>
@@ -99,6 +130,8 @@ export default function TypologiesPageContent({ locale }: { locale: Locale }) {
                 imageLabel={typologyImages[i].label}
                 imageSrc={typologyImages[i].src}
                 delay={(i % 4) * 0.08}
+                exploreLabel={t.walkthrough.exploreInterior}
+                onExploreInterior={() => handleExploreInterior(i)}
               />
             ))}
           </div>
@@ -156,6 +189,18 @@ export default function TypologiesPageContent({ locale }: { locale: Locale }) {
         primaryHref={withLocale(ROUTES.contact, locale)}
         primaryLabel={t.cta.primaryLabel}
       />
+
+      {activeRoom && (
+        <TypologyWalkthrough
+          room={activeRoom}
+          labels={t.walkthrough}
+          onClose={() => setActiveRoom(null)}
+        />
+      )}
+
+      {lightbox && (
+        <ImageLightbox src={lightbox.src} alt={lightbox.alt} onClose={() => setLightbox(null)} />
+      )}
     </>
   );
 }
