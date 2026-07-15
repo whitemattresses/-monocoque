@@ -40,7 +40,7 @@ const nav: LocalizedDictionary["nav"] = {
   typologies: "Typologies",
   sustainability: "Sustainability",
   b2bValue: "B2B Value",
-  enquire: "Enquire",
+  enquire: "Inquire",
 };
 
 const footer: LocalizedDictionary["footer"] = {

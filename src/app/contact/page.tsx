@@ -4,7 +4,7 @@ import ContactPageContent from "@/components/pages/ContactPageContent";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Enquire about bringing the Monocoque CLT system to your next luxury hospitality site.",
+    "Inquire about bringing the Monocoque CLT system to your next luxury hospitality site.",
 };
 
 export default function ContactPage() {

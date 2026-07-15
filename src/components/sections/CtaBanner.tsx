@@ -16,7 +16,7 @@ export default function CtaBanner({
   title,
   description,
   primaryHref = "/contact",
-  primaryLabel = "Enquire About a Project",
+  primaryLabel = "Inquire About a Project",
   secondaryHref,
   secondaryLabel,
 }: CtaBannerProps) {

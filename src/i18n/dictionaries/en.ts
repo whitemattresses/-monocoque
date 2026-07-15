@@ -4,7 +4,7 @@
 export const en = {
   common: {
     ctaEyebrow: "Start a Conversation",
-    ctaPrimaryLabel: "Enquire About a Project",
+    ctaPrimaryLabel: "Inquire About a Project",
   },
 
   meta: {
@@ -20,7 +20,7 @@ export const en = {
     typologies: "Typologies",
     sustainability: "Sustainability",
     b2bValue: "B2B Value",
-    enquire: "Enquire",
+    enquire: "Inquire",
   },
 
   footer: {
@@ -461,7 +461,7 @@ export const en = {
   contactPage: {
     meta: {
       title: "Contact",
-      description: "Enquire about bringing the Monocoque CLT system to your next luxury hospitality site.",
+      description: "Inquire about bringing the Monocoque CLT system to your next luxury hospitality site.",
     },
     eyebrow: "Contact",
     title: "Start a Conversation",
@@ -500,9 +500,9 @@ export const en = {
         options: ["Immediate", "6–12 months", "12–24 months"],
       },
       message: "Message (Optional)",
-      submit: "Submit Enquiry",
+      submit: "Submit Inquiry",
       thankYouTitle: "Thank you.",
-      thankYouBody: "Your enquiry has been received. A member of our team will respond within five business days.",
+      thankYouBody: "Your inquiry has been received. A member of our team will respond within five business days.",
     },
   },
 } as const;
