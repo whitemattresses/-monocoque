@@ -52,7 +52,7 @@ const footer: LocalizedDictionary["footer"] = {
   forDevelopersHeading: "Για Developers",
   forDevelopersText:
     "Συζητήστε μαζί μας τις ανάγκες του έργου σας και λάβετε μια πρώτη αξιολόγηση, ένα ενδεικτικό χρονοδιάγραμμα υλοποίησης και την προτεινόμενη διαμόρφωση Monocoque για το έργο σας.",
-  getInTouch: "Επικοινωνήστε μαζί μας",
+  getInTouch: "Get in Touch",
   copyright: "© {year} Monocoque.",
   creditLine: "Δημιουργία της WHITE, σε συνεργασία με την P4Architecture.",
 };
@@ -535,22 +535,34 @@ const contactPage: LocalizedDictionary["contactPage"] = {
     projectType: {
       label: "Τύπος έργου",
       placeholder: "Επιλέξτε τύπο έργου",
-      options: placeholder.contactPage.form.projectType.options,
+      options: [
+        "Boutique Hotel",
+        "Επέκταση Resort",
+        "Πολυτελείς Βίλες",
+        "Eco Retreat",
+        "Ιδιωτική Κατοικία",
+        "Άλλο",
+      ],
     },
     numberOfUnits: {
       label: "Αριθμός μονάδων",
       placeholder: "Επιλέξτε εύρος",
-      options: placeholder.contactPage.form.numberOfUnits.options,
+      options: ["1–5", "6–20", "Πάνω από 20 μονάδες"],
     },
     siteStatus: {
       label: "Στάδιο έργου",
       placeholder: "Επιλέξτε στάδιο έργου",
-      options: placeholder.contactPage.form.siteStatus.options,
+      options: [
+        "Έχει εξασφαλιστεί το οικόπεδο",
+        "Βρίσκεται υπό αξιολόγηση",
+        "Υφιστάμενη ξενοδοχειακή μονάδα",
+        "Στάδιο σχεδιασμού",
+      ],
     },
     targetTimeline: {
       label: "Επιθυμητό χρονοδιάγραμμα",
       placeholder: "Επιλέξτε χρονοδιάγραμμα",
-      options: placeholder.contactPage.form.targetTimeline.options,
+      options: ["Άμεσα", "Σε 6–12 μήνες", "Σε 12–24 μήνες"],
     },
     message: "Μήνυμα (προαιρετικό)",
     submit: "Αποστολή αιτήματος",
