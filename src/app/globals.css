@@ -38,25 +38,6 @@
       transform: translateY(0);
     }
   }
-
-  /* A very slow, subtle drift used on the hero background — reads as a
-     camera easing gently toward the structure, not a "zoom effect". */
-  --animate-ken-burns: ken-burns 28s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
-
-  @keyframes ken-burns {
-    from {
-      transform: scale(1);
-    }
-    to {
-      transform: scale(1.06);
-    }
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-ken-burns {
-    animation: none;
-  }
 }
 
 html {

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
+import HeroVideo from "@/components/sections/home/HeroVideo";
 import { getDictionary } from "@/i18n/getDictionary";
 import { ROUTES } from "@/i18n/routes";
 import { withLocale } from "@/i18n/paths";
@@ -14,15 +14,7 @@ export default function Hero({ locale }: { locale: Locale }) {
   return (
     <section className="relative overflow-hidden border-b border-line">
       <div className="absolute inset-0">
-        <ImagePlaceholder
-          label="Place your image here: images/hero-home.jpg"
-          src="/images/hero-home.jpg"
-          alt="Monocoque cabin among pines, opening onto the sea"
-          ratio="aspect-auto h-full"
-          className="h-full rounded-none border-0"
-          hoverZoom={false}
-          kenBurns
-        />
+        <HeroVideo />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-charcoal/20 to-charcoal/10" />
       </div>
 
