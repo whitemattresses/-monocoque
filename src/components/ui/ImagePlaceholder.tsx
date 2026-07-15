@@ -12,6 +12,7 @@ type ImagePlaceholderProps = {
   fit?: "cover" | "contain";
   containBg?: string;
   hoverZoom?: boolean;
+  kenBurns?: boolean;
 };
 
 export default function ImagePlaceholder({
@@ -24,6 +25,7 @@ export default function ImagePlaceholder({
   fit = "cover",
   containBg = "bg-cream-dim",
   hoverZoom,
+  kenBurns = false,
 }: ImagePlaceholderProps) {
   const imgRef = useRef<HTMLImageElement>(null);
   const [loaded, setLoaded] = useState(false);
@@ -51,7 +53,7 @@ export default function ImagePlaceholder({
             fit === "contain" ? "object-contain p-4" : "object-cover"
           } ${loaded ? "opacity-100" : "opacity-0"} ${
             zoomOnHover ? "hover:scale-[1.04]" : ""
-          }`}
+          } ${kenBurns ? "animate-ken-burns" : ""}`}
         />
       </div>
     );

@@ -21,6 +21,7 @@ export default function Hero({ locale }: { locale: Locale }) {
           ratio="aspect-auto h-full"
           className="h-full rounded-none border-0"
           hoverZoom={false}
+          kenBurns
         />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-charcoal/20 to-charcoal/10" />
       </div>
