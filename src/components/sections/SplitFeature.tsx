@@ -105,14 +105,19 @@ export default function SplitFeature({
           <Reveal delay={0.26}>
             <Link
               href={href}
-              className={`tracking-wide-label mt-10 inline-flex items-center gap-3 text-[0.72rem] uppercase ${
+              className={`tracking-wide-label group mt-10 inline-flex items-center gap-3 text-[0.72rem] uppercase transition-colors duration-300 ${
                 dark
                   ? "text-cream hover:text-wood-light"
                   : "text-charcoal hover:text-wood"
               }`}
             >
               {linkLabel}
-              <span aria-hidden>→</span>
+              <span
+                aria-hidden
+                className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1"
+              >
+                →
+              </span>
             </Link>
           </Reveal>
         </div>

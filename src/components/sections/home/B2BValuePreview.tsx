@@ -39,9 +39,15 @@ export default function B2BValuePreview({ locale }: { locale: Locale }) {
         <Reveal delay={0.3}>
           <Link
             href={withLocale(ROUTES.b2bValue, locale)}
-            className="tracking-wide-label mt-14 inline-flex items-center gap-3 text-[0.72rem] uppercase text-charcoal hover:text-wood"
+            className="tracking-wide-label group mt-14 inline-flex items-center gap-3 text-[0.72rem] uppercase text-charcoal transition-colors duration-300 hover:text-wood"
           >
-            {b2bValuePreview.linkLabel} <span aria-hidden>→</span>
+            {b2bValuePreview.linkLabel}{" "}
+            <span
+              aria-hidden
+              className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1"
+            >
+              →
+            </span>
           </Link>
         </Reveal>
       </div>

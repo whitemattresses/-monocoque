@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
 type ImagePlaceholderProps = {
   label: string;
   src?: string;
@@ -7,6 +11,7 @@ type ImagePlaceholderProps = {
   className?: string;
   fit?: "cover" | "contain";
   containBg?: string;
+  hoverZoom?: boolean;
 };
 
 export default function ImagePlaceholder({
@@ -18,7 +23,16 @@ export default function ImagePlaceholder({
   className = "",
   fit = "cover",
   containBg = "bg-cream-dim",
+  hoverZoom,
 }: ImagePlaceholderProps) {
+  const imgRef = useRef<HTMLImageElement>(null);
+  const [loaded, setLoaded] = useState(false);
+  const zoomOnHover = hoverZoom ?? fit === "cover";
+
+  useEffect(() => {
+    if (imgRef.current?.complete) setLoaded(true);
+  }, []);
+
   if (src) {
     return (
       <div
@@ -28,11 +42,15 @@ export default function ImagePlaceholder({
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
+          ref={imgRef}
           src={src}
           alt={alt ?? label}
           loading="lazy"
-          className={`h-full w-full ${
+          onLoad={() => setLoaded(true)}
+          className={`h-full w-full transition-[opacity,transform] duration-700 ease-out ${
             fit === "contain" ? "object-contain p-4" : "object-cover"
+          } ${loaded ? "opacity-100" : "opacity-0"} ${
+            zoomOnHover ? "hover:scale-[1.04]" : ""
           }`}
         />
       </div>

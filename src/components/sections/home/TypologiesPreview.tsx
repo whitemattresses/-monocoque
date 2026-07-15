@@ -31,9 +31,15 @@ export default function TypologiesPreview({ locale }: { locale: Locale }) {
           <Reveal delay={0.1}>
             <Link
               href={typologiesHref}
-              className="tracking-wide-label hidden shrink-0 items-center gap-3 text-[0.72rem] uppercase text-charcoal hover:text-wood md:flex"
+              className="tracking-wide-label group hidden shrink-0 items-center gap-3 text-[0.72rem] uppercase text-charcoal transition-colors duration-300 hover:text-wood md:flex"
             >
-              {typologiesPreview.viewAll} <span aria-hidden>→</span>
+              {typologiesPreview.viewAll}{" "}
+              <span
+                aria-hidden
+                className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1"
+              >
+                →
+              </span>
             </Link>
           </Reveal>
         </div>
@@ -41,14 +47,16 @@ export default function TypologiesPreview({ locale }: { locale: Locale }) {
         <div className="mt-16 grid gap-x-8 gap-y-14 md:grid-cols-3">
           {typologiesPreview.items.map((item, i) => (
             <Reveal key={item.name} delay={i * 0.08}>
-              <ImagePlaceholder label={images[i].label} src={images[i].src} />
-              <p className="mt-6 font-serif text-2xl">{item.name}</p>
-              <p className="mt-2 text-sm tracking-wide text-charcoal/55">
-                {item.note}
-              </p>
-              <p className="mt-3 text-sm leading-relaxed text-wood">
-                {item.useCase}
-              </p>
+              <div className="transition-[transform,box-shadow] duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(28,28,28,0.28)]">
+                <ImagePlaceholder label={images[i].label} src={images[i].src} />
+                <p className="mt-6 font-serif text-2xl">{item.name}</p>
+                <p className="mt-2 text-sm tracking-wide text-charcoal/55">
+                  {item.note}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-wood">
+                  {item.useCase}
+                </p>
+              </div>
             </Reveal>
           ))}
         </div>
@@ -56,9 +64,15 @@ export default function TypologiesPreview({ locale }: { locale: Locale }) {
         <Reveal delay={0.1}>
           <Link
             href={typologiesHref}
-            className="tracking-wide-label mt-14 inline-flex items-center gap-3 text-[0.72rem] uppercase text-charcoal hover:text-wood md:hidden"
+            className="tracking-wide-label group mt-14 inline-flex items-center gap-3 text-[0.72rem] uppercase text-charcoal transition-colors duration-300 hover:text-wood md:hidden"
           >
-            {typologiesPreview.viewAll} <span aria-hidden>→</span>
+            {typologiesPreview.viewAll}{" "}
+            <span
+              aria-hidden
+              className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1"
+            >
+              →
+            </span>
           </Link>
         </Reveal>
       </div>

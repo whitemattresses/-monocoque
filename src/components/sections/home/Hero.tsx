@@ -20,6 +20,7 @@ export default function Hero({ locale }: { locale: Locale }) {
           alt="Monocoque cabin among pines, opening onto the sea"
           ratio="aspect-auto h-full"
           className="h-full rounded-none border-0"
+          hoverZoom={false}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-charcoal/20 to-charcoal/10" />
       </div>
@@ -72,9 +73,15 @@ export default function Hero({ locale }: { locale: Locale }) {
           </Link>
           <Link
             href={withLocale(ROUTES.contact, locale)}
-            className="tracking-wide-label text-[0.72rem] uppercase text-cream/80 hover:text-cream"
+            className="tracking-wide-label group inline-flex items-center gap-2 text-[0.72rem] uppercase text-cream/80 transition-colors duration-300 hover:text-cream"
           >
-            {hero.ctaSecondary} →
+            {hero.ctaSecondary}
+            <span
+              aria-hidden
+              className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1"
+            >
+              →
+            </span>
           </Link>
         </motion.div>
       </div>
