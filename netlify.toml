@@ -9,3 +9,13 @@
   # Next.js route (like /scroll-test.html) and serves Next's own 404 page
   # instead of the actual file from the `out` publish directory.
   NETLIFY_NEXT_PLUGIN_SKIP = "true"
+
+# Belt-and-suspenders: explicitly force this one static file to be served
+# as-is with a 200, in case the Next.js Runtime plugin is still active
+# (e.g. pinned via the Netlify UI rather than auto-detected) and would
+# otherwise catch this path and hand it to Next's own not-found page.
+[[redirects]]
+  from = "/scroll-test.html"
+  to = "/scroll-test.html"
+  status = 200
+  force = true
