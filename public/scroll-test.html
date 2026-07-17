@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Monocoque — Scroll Test Prototype</title>
+
+<!--
+  Standalone proof-of-concept. Not part of the Next.js app: no routes,
+  components, or styles from the main site are touched or imported here.
+  Pure HTML + CSS + vanilla JS + Three.js from a CDN.
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
+  rel="stylesheet"
+/>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    background: #ffffff;
+    color: #1c1c1c;
+    font-family: "Cormorant Garamond", Georgia, serif;
+  }
+
+  /* --- Simple text sections, above/below the pinned 3D section --- */
+
+  .text-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .text-section p {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  /* --- Pinned scroll-scrub section --- */
+
+  #pin-wrapper {
+    position: relative;
+    /* ~400vh: a long scroll distance so the camera move reads as slow
+       and cinematic rather than a quick snap. */
+    height: 400vh;
+  }
+
+  #pin-stage {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background: #87ceab;
+  }
+
+  #pin-stage canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #progress-debug {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    font-family: ui-monospace, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.65);
+    text-transform: uppercase;
+    pointer-events: none;
+    z-index: 2;
+  }
+</style>
+</head>
+<body>
+  <section class="text-section">
+    <p>Scroll to enter</p>
+  </section>
+
+  <section id="pin-wrapper">
+    <div id="pin-stage">
+      <div id="progress-debug">0%</div>
+    </div>
+  </section>
+
+  <section class="text-section">
+    <p>You are inside.</p>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    "use strict";
+
+    // =========================================================================
+    // CONFIG
+    // =========================================================================
+
+    // Real-world cabin dimensions (metres). Kept as named constants so a
+    // future real model can reuse the same numbers for the camera path.
+    var CABIN = {
+      width: 2.4,
+      length: 12,
+      height: 2.8,
+    };
+
+    var COLORS = {
+      wood: 0xc4956a, // walls + ceiling
+      floor: 0x8b6343,
+      glassTint: 0xbfe8dc, // subtle blue-green
+      skyTop: "#87ceab",
+      skyBottom: "#e8dfd0",
+    };
+
+    // Camera path: an ordered list of waypoints from "outside, looking at
+    // the facade" to "resting in the middle of the interior, facing the
+    // far opening". Each waypoint has a camera position and a point to
+    // look at. Scroll progress (0-1) samples smoothly along this path.
+    //
+    // FUTURE PROOF: this list is the only thing that needs adjusting if the
+    // procedural cabin below is replaced by a real GLB/GLTF model with
+    // different proportions — nothing else in the scroll-driver logic
+    // depends on how the geometry was built.
+    var CAMERA_WAYPOINTS = [
+      { pos: [0, 1.7, -7], look: [0, 1.6, 0] }, // establishing shot, outside
+      { pos: [0, 1.65, -1.5], look: [0, 1.6, 3] }, // approaching the opening
+      { pos: [0, 1.6, 3], look: [0, 1.55, 8] }, // just inside
+      { pos: [0, 1.6, CABIN.length / 2], look: [0, 1.5, CABIN.length] }, // resting, facing the far opening
+    ];
+
+    // How quickly the camera eases toward the scroll-derived target each
+    // frame (0-1). Lower = smoother / more lag, higher = snappier.
+    var SCROLL_SMOOTHING = 0.07;
+
+    // =========================================================================
+    // SCENE CONTENT — swap point for a future real model.
+    //
+    // Replace the body of buildEnvironment() with a GLTFLoader call that
+    // adds the loaded scene to `scene`. Everything else (renderer, camera
+    // path, scroll driver, render loop) is agnostic to how the environment
+    // was constructed.
+    // =========================================================================
+
+    function createGradientTexture(topColor, bottomColor) {
+      var canvas = document.createElement("canvas");
+      canvas.width = 8;
+      canvas.height = 256;
+      var ctx = canvas.getContext("2d");
+      var gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+      gradient.addColorStop(0, topColor);
+      gradient.addColorStop(1, bottomColor);
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      var texture = new THREE.CanvasTexture(canvas);
+      texture.needsUpdate = true;
+      return texture;
+    }
+
+    function buildEnvironment(scene) {
+      // Soft sky-like gradient standing in for the exterior landscape,
+      // visible through the glass openings and behind the establishing shot.
+      scene.background = createGradientTexture(COLORS.skyTop, COLORS.skyBottom);
+
+      var w = CABIN.width;
+      var l = CABIN.length;
+      var h = CABIN.height;
+      var half = w / 2;
+
+      var woodMaterial = new THREE.MeshStandardMaterial({
+        color: COLORS.wood,
+        roughness: 0.85,
+      });
+      var floorMaterial = new THREE.MeshStandardMaterial({
+        color: COLORS.floor,
+        roughness: 0.75,
+      });
+      var glassMaterial = new THREE.MeshStandardMaterial({
+        color: COLORS.glassTint,
+        transparent: true,
+        opacity: 0.16,
+        roughness: 0.08,
+        metalness: 0.2,
+        side: THREE.DoubleSide,
+      });
+
+      var cabin = new THREE.Group();
+
+      var floor = new THREE.Mesh(new THREE.PlaneGeometry(w, l), floorMaterial);
+      floor.rotation.x = -Math.PI / 2;
+      floor.position.set(0, 0, l / 2);
+      floor.receiveShadow = true;
+      cabin.add(floor);
+
+      var ceiling = new THREE.Mesh(new THREE.PlaneGeometry(w, l), woodMaterial);
+      ceiling.rotation.x = Math.PI / 2;
+      ceiling.position.set(0, h, l / 2);
+      cabin.add(ceiling);
+
+      var wallLeft = new THREE.Mesh(new THREE.PlaneGeometry(l, h), woodMaterial);
+      wallLeft.rotation.y = Math.PI / 2;
+      wallLeft.position.set(-half, h / 2, l / 2);
+      cabin.add(wallLeft);
+
+      var wallRight = new THREE.Mesh(new THREE.PlaneGeometry(l, h), woodMaterial);
+      wallRight.rotation.y = -Math.PI / 2;
+      wallRight.position.set(half, h / 2, l / 2);
+      cabin.add(wallRight);
+
+      var glassFront = new THREE.Mesh(new THREE.PlaneGeometry(w, h), glassMaterial);
+      glassFront.position.set(0, h / 2, 0);
+      cabin.add(glassFront);
+
+      var glassBack = new THREE.Mesh(new THREE.PlaneGeometry(w, h), glassMaterial);
+      glassBack.rotation.y = Math.PI;
+      glassBack.position.set(0, h / 2, l);
+      cabin.add(glassBack);
+
+      scene.add(cabin);
+
+      // --- Lighting ---
+      var ambient = new THREE.AmbientLight(0xfff2df, 0.55);
+      scene.add(ambient);
+
+      var sun = new THREE.DirectionalLight(0xfff1d8, 1.1);
+      sun.position.set(2, h * 2, -4);
+      sun.target.position.set(0, 1.4, l * 0.3);
+      scene.add(sun);
+      scene.add(sun.target);
+    }
+
+    // =========================================================================
+    // RENDERER + CAMERA
+    // =========================================================================
+
+    var stage = document.getElementById("pin-stage");
+    var progressDebug = document.getElementById("progress-debug");
+
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(60, stage.clientWidth / stage.clientHeight, 0.1, 100);
+
+    var renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(stage.clientWidth, stage.clientHeight);
+    stage.appendChild(renderer.domElement);
+
+    buildEnvironment(scene);
+
+    function onResize() {
+      camera.aspect = stage.clientWidth / stage.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(stage.clientWidth, stage.clientHeight);
+    }
+    window.addEventListener("resize", onResize);
+
+    // =========================================================================
+    // CAMERA PATH (built once from CAMERA_WAYPOINTS)
+    // =========================================================================
+
+    var positionCurve = new THREE.CatmullRomCurve3(
+      CAMERA_WAYPOINTS.map(function (wp) {
+        return new THREE.Vector3(wp.pos[0], wp.pos[1], wp.pos[2]);
+      }),
+    );
+    var lookAtCurve = new THREE.CatmullRomCurve3(
+      CAMERA_WAYPOINTS.map(function (wp) {
+        return new THREE.Vector3(wp.look[0], wp.look[1], wp.look[2]);
+      }),
+    );
+
+    function applyCameraProgress(t) {
+      var clamped = Math.max(0, Math.min(1, t));
+      var position = positionCurve.getPointAt(clamped);
+      var lookAt = lookAtCurve.getPointAt(clamped);
+      camera.position.copy(position);
+      camera.lookAt(lookAt);
+    }
+
+    applyCameraProgress(0);
+
+    // =========================================================================
+    // SCROLL DRIVER — computes 0..1 progress through the pinned section.
+    // This is the only place that reads the DOM scroll position; everything
+    // downstream just consumes a plain 0..1 number.
+    // =========================================================================
+
+    var pinWrapper = document.getElementById("pin-wrapper");
+    var scrollTargetProgress = 0;
+    var smoothedProgress = 0;
+
+    function computeScrollProgress() {
+      var rect = pinWrapper.getBoundingClientRect();
+      var scrollableDistance = rect.height - window.innerHeight;
+      if (scrollableDistance <= 0) return 0;
+      var raw = -rect.top / scrollableDistance;
+      return Math.max(0, Math.min(1, raw));
+    }
+
+    function onScroll() {
+      scrollTargetProgress = computeScrollProgress();
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    // =========================================================================
+    // RENDER LOOP
+    // =========================================================================
+
+    function animate() {
+      requestAnimationFrame(animate);
+
+      // Smooth (lerp) the camera's progress toward the scroll target so
+      // fast/jerky wheel input doesn't translate into abrupt camera motion.
+      smoothedProgress += (scrollTargetProgress - smoothedProgress) * SCROLL_SMOOTHING;
+
+      applyCameraProgress(smoothedProgress);
+      progressDebug.textContent = Math.round(smoothedProgress * 100) + "%";
+
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script>
+</body>
+</html>
