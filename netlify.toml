@@ -1,3 +1,11 @@
 [build]
   command = "npm run build"
   publish = "out"
+
+[build.environment]
+  # This project uses `output: "export"` (fully static). Without this,
+  # Netlify auto-detects the Next.js app and routes everything through its
+  # Next.js Runtime plugin, which intercepts static files that aren't a
+  # Next.js route (like /scroll-test.html) and serves Next's own 404 page
+  # instead of the actual file from the `out` publish directory.
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
