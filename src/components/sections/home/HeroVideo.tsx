@@ -15,6 +15,21 @@ export default function HeroVideo() {
     const video = videoRef.current;
     if (!video) return;
 
+    // Attach listeners imperatively (rather than via React's onLoadedData/
+    // onError props) and check readyState immediately: on a fast/cached
+    // load, the native `loadeddata` event can fire before React finishes
+    // hydrating and wires up its synthetic event handler on this node,
+    // which permanently misses the (non-repeating) event and leaves the
+    // video stuck at opacity-0 forever, even though it's playing fine.
+    if (video.readyState >= 2) {
+      setLoaded(true);
+    }
+
+    const handleLoadedData = () => setLoaded(true);
+    const handleError = () => setFailed(true);
+    video.addEventListener("loadeddata", handleLoadedData);
+    video.addEventListener("error", handleError);
+
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
@@ -32,7 +47,11 @@ export default function HeroVideo() {
       }
     }, 6000);
 
-    return () => window.clearTimeout(stallTimeout);
+    return () => {
+      video.removeEventListener("loadeddata", handleLoadedData);
+      video.removeEventListener("error", handleError);
+      window.clearTimeout(stallTimeout);
+    };
   }, []);
 
   if (failed) {
@@ -56,8 +75,6 @@ export default function HeroVideo() {
       playsInline
       preload="auto"
       poster={POSTER}
-      onLoadedData={() => setLoaded(true)}
-      onError={() => setFailed(true)}
       className={`h-full w-full bg-charcoal object-cover transition-opacity duration-1000 ease-out ${
         loaded ? "opacity-100" : "opacity-0"
       }`}
